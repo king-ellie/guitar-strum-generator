@@ -11,7 +11,7 @@ def strum_generator():
     strummingpattern = ''
     strummingpattern2 = ''
     
-    # 3) while loop, while count >17 insert strum alternating from up and down buckets
+    # 3) build both lines of the strumming pattern
 
     for slot in range(4):
         strummingpattern = strummingpattern + random.choice(downlist)
@@ -21,12 +21,19 @@ def strum_generator():
         strummingpattern2 = strummingpattern2 + random.choice(downlist)
         strummingpattern2 = strummingpattern2 + random.choice(uplist)
 
-    # 4) print strumming list
+    # 4) print full strumming pattern
 
-    print(strummingpattern)
-    print(strummingpattern2)
+    print(strummingpattern + "\n" + strummingpattern2 )
 
+    # 5) ask if user wants another pattern
+
+    user_another = raw_input("Press enter to generate another pattern, enter 'X' to exit: ")
+    if user_another == ('X'):
+        print("See you next time.")
+    else:
+        strum_generator()
+    
 
 if __name__ == '__main__':
-    print ("Time to practice strumming, you little rockstar, you.\n...")
+    print ("Time to practice strumming, you little rockstar, you.\n")
     strum_generator()
